@@ -46,6 +46,15 @@ jobs:
         sudo -E systemctl daemon-reload
         sudo timedatectl set-timezone "$TZ"
 
+    - name: Set up Swap Space (添加交换空间)
+      run: |
+        sudo fallocate -l 8G /swapfile
+        sudo chmod 600 /swapfile
+        sudo mkswap /swapfile
+        sudo swapon /swapfile
+        sudo sysctl vm.swappiness=10
+        free -h
+
     - name: Checkout(检出代码)
       uses: actions/checkout@main
 
