@@ -93,8 +93,8 @@ jobs:
         path: |
           ${{ env.OPENWRT_PATH }}/.ccache
           ${{ env.OPENWRT_PATH }}/staging_dir
-          ${{ env.OPENWRT_PATH }}/build_dir/host
-          ${{ env.OPENWRT_PATH }}/build_dir/toolchain-*
+
+          
     - name: Refresh The Cache(刷新缓存)
       run: |
         if [ -d "$OPENWRT_PATH/staging_dir" ]; then
